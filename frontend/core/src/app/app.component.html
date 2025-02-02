@@ -1,0 +1,8 @@
+<h1>{{ title }}</h1>
+<div *ngIf="testData">
+  <h3>Data from Backend:</h3>
+  <!-- <pre>{{ testData.data | json }}</pre> -->
+  <div *ngFor="let item of testData.data | keyvalue">
+    <p>{{ item.key }} - {{ item.value }}</p>
+  </div>
+</div>

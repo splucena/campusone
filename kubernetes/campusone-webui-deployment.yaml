@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: campusone-webui-core-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: campusone-webui-core-app
+  template:
+    metadata:
+      labels:
+        app: campusone-webui-core-app
+    spec:
+      containers:
+      - name: campusone-webui-core-app
+        image: splucena/campusone-webui-core-app:latest
+        ports:
+        - containerPort: 80

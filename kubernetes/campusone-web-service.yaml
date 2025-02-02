@@ -7,6 +7,6 @@ spec:
     app: campusone-web-core-app  # This must match the Deployment label
   ports:
     - protocol: TCP
-      port: 9000        # External access port
+      port: 8000        # External access port
       targetPort: 8000  # The app inside the container runs on 8000
   type: NodePort  # Use LoadBalancer for cloud deployments

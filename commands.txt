@@ -21,3 +21,14 @@ $ kubectl get services
 $ kubectl apply -f campusone-deployment.yaml        
 $ kubectl get deployments
 $ kubectl get pods
+
+ Expose port
+$ kubectl port-forward deployment/campusone-web-core-app 9000:8000
+
+Scale
+$ kubectl scale deployment campusone-web-core-app --replicas=3
+
+
+Restart deployment
+kubectl rollout restart deployment campusone-webui-core-app
+

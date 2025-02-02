@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: campusone-web-core-app
-        image: splucena/campusone-core-web-app:latest
+        image: splucena/campusone-web-core-app:latest
         ports:
         - containerPort: 8000  # The app runs on port 8000 inside the container
