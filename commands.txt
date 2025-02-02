@@ -1,0 +1,23 @@
+Docker
+
+Push  and pull image to docker hub
+$ docker login
+$ docker build -t splucena/campusone-core-web-app:latest . - build image
+$ docker tag core-web-app:latest splucena/campusone-core-web-app:latest - image already built
+$ docker push splucena/campusone-core-web-app:latest
+$ docker pull splucena/campusone-core-web-app:latest
+
+Kubernetes
+
+$ kubectl expose pod campusone --type=NodePort --port=8000 --name=campusone-service
+$ minikube service campusone-service --url
+or 
+$ kubectl port-forward pod/campusone 8000:8000
+
+$ kubectl delete service campusone-service
+$ kubectl apply -f campusone-service.yaml
+$ kubectl apply -f campusone-service.yaml
+$ kubectl get services
+$ kubectl apply -f campusone-deployment.yaml        
+$ kubectl get deployments
+$ kubectl get pods

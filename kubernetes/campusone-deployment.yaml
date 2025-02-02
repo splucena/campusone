@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: campusone-web-core-app
+spec:
+  replicas: 1 # increase when needed
+  selector:
+    matchLabels:
+      app: campusone-web-core-app
+  template:
+    metadata:
+      labels:
+        app: campusone-web-core-app
+    spec:
+      containers:
+      - name: campusone-web-core-app
+        image: splucena/campusone-core-web-app:latest
+        ports:
+        - containerPort: 8000  # The app runs on port 8000 inside the container
