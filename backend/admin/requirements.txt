@@ -1,0 +1,25 @@
+# Core dependencies
+Django==4.2
+djangorestframework==3.14.0  # For building REST APIs
+
+# Database
+psycopg2-binary==2.9.9  # PostgreSQL adapter for Django
+
+# Authentication & Security
+djangorestframework-simplejwt==5.3.0  # JWT Authentication
+django-cors-headers==4.3.0  # Enable CORS (Cross-Origin Resource Sharing)
+
+# Environment Variables
+python-dotenv==1.0.1  # For loading .env files
+
+# Additional Utilities
+gunicorn==21.2.0  # Production WSGI server
+whitenoise==6.6.0  # Static file serving in production
+
+# Async Tasks (Optional)
+celery==5.3.6  # For background task processing
+redis==5.0.1  # Redis support (for Celery or caching)
+
+# Monitoring & Debugging (Optional)
+django-debug-toolbar==4.2.0  # Debugging tool for Django
+drf-yasg==1.21.7  # API documentation (Swagger)

@@ -1,0 +1,45 @@
+version: "3.8"
+
+services:
+  web-admin-app:  # Django Service
+    build: .
+    container_name: web_admin_app
+    restart: always
+    depends_on:
+      web-admin-db:  # Reference its own database
+        condition: service_healthy
+    volumes:
+      - .:/app
+      - ./requirements.txt:/app/requirements.txt
+    ports:
+      - "8001:8001"
+    networks:
+      - core_web_core_network  # Use the same network as FastAPI
+    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8001"
+
+  web-admin-db:  # Django's PostgreSQL Database (Separate from FastAPI's)
+    image: postgres:15
+    container_name: web_admin_db
+    restart: always
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - web-admin-db-data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"  # Different port than FastAPI’s DB to prevent conflicts
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - core_web_core_network  # Still in the same network as FastAPI
+
+networks:
+  core_web_core_network:  # Use the existing FastAPI network
+    external: true  # Connects to FastAPI’s network
+
+volumes:
+  web-admin-db-data:
