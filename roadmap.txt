@@ -1,0 +1,23 @@
+/campusone/
+│── /campus_admin/        # Django for Authentication, Enrollment, Admin Panel
+│   │── /config/          # Django settings and configurations
+│   │── /users/           # Authentication & user management
+│   │── /enrollment/      # Student enrollment & registration
+│   │── /courses/         # Course management (CRUD)
+│   │── /templates/       # HTML templates (if needed)
+│   │── manage.py         # Django CLI
+│   └── requirements.txt  # Python dependencies for Django
+│
+│── /core/                # FastAPI for High-Performance APIs (Inside Django)
+│   │── /visualization/   # Data visualization APIs
+│   │── /exams/           # Exam handling API (FastAPI)
+│   │── /grading/         # Automatic grading & reports
+│   │── main.py           # FastAPI main app
+│   └── requirements.txt  # Python dependencies for FastAPI
+│
+│── /frontend/            # Frontend (React, Vue, Angular)
+│── /kubernetes/          # Kubernetes configurations (Deployment, Services)
+│── .gitignore            # Git ignore file
+│── commands.txt          # Dev commands (DB migrations, deployment)
+│── LICENSE               # License file
+│── README.md             # Documentation

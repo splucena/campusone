@@ -20,5 +20,5 @@ COPY . .
 # Expose Django's port
 EXPOSE 8000
 
-# Run migrations and start Django
-CMD ["sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]
+# Run migrations, create superuser, and start Django
+CMD ["sh", "-c", "python manage.py migrate && python /app/create_superuser.py && python manage.py runserver 0.0.0.0:8000"]
